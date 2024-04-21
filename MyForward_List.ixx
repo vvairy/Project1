@@ -122,6 +122,14 @@ public:
 		return head;
 	}
 
+	iterator find(const T& value)
+	{
+		for (auto it = this->begin(); it != this->end(); ++it)
+			if (*it = value)
+				return it;
+		return this->end();
+	}
+
 	void push_front(const T& value)
 	{
 		Node* node = allocator_traits::allocate(alloc, 1);
@@ -145,8 +153,8 @@ public:
 		{  
 			BaseNode* firstNode = head;  
 			head = firstNode->next;
-			alloc.destroy(firstNode);
-			alloc.deallocate(firstNode, 1);
+			allocator_traits::destroy(alloc, firstNode);
+			allocator_traits::deallocate(alloc, static_cast<Node*>(firstNode), 1);
 		}
 	}
 

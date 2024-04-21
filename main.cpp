@@ -17,7 +17,7 @@ int main()
 	list.emplace_front(7);
 	list.emplace_after(list.begin(), 9);
 
-	std::cout << sizeof(MyForward_List<int>);
+	list.erase_after(list.find(4));
 
 	for (int el : list)
 		std::cout << el << ' ';
