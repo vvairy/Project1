@@ -77,7 +77,7 @@ public:
 			return static_cast<Node*>(node)->value;
 		}
 
-		T* operator->() const 
+		T* operator->() 
 		{
 			return &(static_cast<Node*>(node)->value);
 		}
@@ -125,7 +125,7 @@ public:
 	iterator find(const T& value)
 	{
 		for (auto it = this->begin(); it != this->end(); ++it)
-			if (*it = value)
+			if (*it == value)
 				return it;
 		return this->end();
 	}

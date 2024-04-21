@@ -18,7 +18,6 @@ int main()
 	list.emplace_after(list.begin(), 9);
 
 	list.erase_after(list.find(4));
-
 	for (int el : list)
 		std::cout << el << ' ';
 	
